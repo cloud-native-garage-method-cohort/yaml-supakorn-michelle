@@ -1,22 +1,24 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  generateName: curl-dog-facts-
+  generateName: "curl-dog-facts-"
+  generateName: 'curl-dog-facts-'
   namespace: supakorn-tekton-catalog-assignment
   labels:
-    app.kubernetes.io/managed-by: tekton-pipelines
-tekton.dev/task: tekton-task-assignment
+    app.kubernetes.io/managed-by: 'tekton-pipelines'
+    tekton.dev/task: tekton-task-assignment
 spec:
   resources: {}
   serviceAccountName: pipeline
   params:
     - name: url
       value: "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=5"
+      value: "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=5"
     - name: options
       value:
        - "-i"
   taskRef:
     kind: Task
-         name: curl
+    name: curl
   timeout: 1h0m0s
 
